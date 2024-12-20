@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock %}</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="navbar bg-base-100">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+          >
+            <li><a href="{% url 'home' %}">HOME</a></li>
+            <li><a>ROOMS & SUITES</a></li>
+            <li><a>MEETINGS & EVENTS</a></li>
+            <li><a>RESTUARANTS & DINING</a></li>
+            <li>
+              <details>
+                <summary>More</summary>
+                <ul class="p-2">
+                  <li><a>CONTACT</a></li>
+                  <li><a>ABOUT</a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </div>
+        <a href="{% url 'home' %}" class="btn btn-ghost text-xl">Hotel09</a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a href="{% url 'home' %}">HOME</a></li>
+          <li><a>ROOMS & SUITES</a></li>
+          <li><a>MEETINGS & EVENTS</a></li>
+          <li><a>RESTUARANTS & DINING</a></li>
+          <li>
+            <details>
+              <summary>More</summary>
+              <ul class="p-2">
+                <li><a>CONTACT</a></li>
+                <li><a>ABOUT</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </div>
+      {% if user.is_authenticated %}
+      <div class="navbar-end mr-2">
+        <ul class="menu menu-horizontal px-1">
+          <li>
+            <details>
+              <summary class="border">Account</summary>
+              <ul class="p-2">
+                {% if user.is_staff == True %}
+                <li><a href="{% url 'admin' %}">ADMIN</a></li>
+                <li><a href="{% url 'profile' %}">PROFILE</a></li>
+                <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+                {% else %}
+                <li><a href="{% url 'profile' %}">PROFILE</a></li>
+                <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+                {% endif %}
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </div>
+      {% else %}
+      <div class="navbar-end">
+        <a href="{% url 'login' %}" class="btn">LOGIN</a>
+      </div>
+      <div class="ml-2">
+        <a href="{% url 'register' %}" class="btn">REGISTER</a>
+      </div>
+      {% endif %}
+    </div>
+
+    {% if messages %}
+    <ul>
+      {% for message in messages %} {% if 'success' in message.tags %}
+      <div role="alert" class="alert alert-success">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 shrink-0 stroke-current"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <span>{{ message }}</span>
+      </div>
+      {% elif 'error' in message.tags %}
+      <div role="alert" class="alert alert-error">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 shrink-0 stroke-current"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <span>{{ message }}</span>
+      </div>
+      {% else %}
+      <div role="alert" class="alert alert-info">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          class="h-6 w-6 shrink-0 stroke-current"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+        <span>{{ message }}</span>
+      </div>
+      {% endif %} {% endfor %}
+    </ul>
+    {% endif %}
+<div class="w-full h-screen flex md:flex-row flex-col">
+    <div class=" w-full h-1/4 md:w-1/4 md:h-full bg-gray-400">
+        <div class="overflow-x-auto">
+            <table class="table">
+              
+                <tr class="bg-base-200 w-full ">
+                  <td class="w-full text-center font-bold"><a href="{% url 'admin' %}">Dashbboard</a></td>
+                </tr>
+                <tr class="bg-base-200 w-full ">
+                    <td class="w-full text-center font-bold"><a href="{% url 'bookings' %}">Bookings</a></td>
+                  </tr>
+                  <tr class="bg-base-200 w-full ">
+                    <td class="w-full text-center font-bold"><a href="{% url 'rooms' %}">Rooms</a></td>
+                  </tr>
+                  <tr class="bg-base-200 w-full ">
+                    <td class="w-full text-center font-bold"><a href="">Reviews</a></td>
+                  </tr>
+                  <tr class="bg-base-200 w-full ">
+                    <td class="w-full text-center font-bold"><a href="">Employes</a></td>
+                  </tr>
+                
+               
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+    </div>
+    <div class="md:w-[75%] md:h-full w-full h-[75%] bg-gray-700 overflow-y-scroll">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+</div>

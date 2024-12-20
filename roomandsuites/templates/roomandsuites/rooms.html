@@ -1,0 +1,45 @@
+{% extends "admin.html" %} {% block title %} Dashbboard | 09Hotel {% endblock %} 
+{% block content %}
+<div>
+<div class="navbar bg-base-100">
+    <div class="navbar-start">
+      <a class="btn btn-ghost text-xl">ROOMS</a>
+    </div>
+    <div class="navbar-end">
+      <a href="{% url 'create_room' %}" class="btn">Create Rooms</a>
+    </div>
+  </div>
+  
+
+  <div class="overflow-x-auto overflow-y-auto">
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Room Type</th>
+          <th>Price per Night</th>
+          <th>Is Available?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- row 1 -->
+         {% for room in rooms %}
+        <tr>
+          <th>{{ room.number }}</th>
+          <td>{{ room.name }}</td>
+          <td>{{ room.type }}</td>
+          <td>{{ room.price }} /- PKR</td>
+          <th>{{ room.is_available }}</th>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  
+  
+
+</div>
+
+{% endblock %}

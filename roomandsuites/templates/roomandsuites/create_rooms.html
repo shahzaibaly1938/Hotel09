@@ -1,0 +1,82 @@
+{% extends "admin.html" %} {% block title %} Dashbboard | 09Hotel {% endblock %}
+{% block content %}
+
+<div class="w-full h-full flex flex-col items-center">
+    <div class="navbar bg-base-100">
+        <div class="navbar-start">
+          <a class="btn btn-ghost text-xl">Create Rooms</a>
+        </div>
+        <div class="navbar-end">
+          <a href="{% url 'rooms' %}" class="btn">Back to Rooms</a>
+        </div>
+      </div>
+
+    <div class="card bg-base-100 mt-5 w-full max-w-sm shrink-0 shadow-2xl">
+      <form class="card-body" method="post" action="{% url 'create_room' %}">
+        {% csrf_token %}
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Room name</span>
+          </label>
+          <input
+            type="text"
+            name="name"
+            placeholder="VIP Mountain View #1099"
+            class="input input-bordered"
+            required
+          />
+        </div>
+        <div class="form-control">
+            <label class="label">
+              <span class="label-text">Room Charge per Night</span>
+            </label>
+            <input
+              type="number"
+              name="price"
+              placeholder="18000"
+              class="input input-bordered"
+              required
+            />
+          </div>
+          <div class="form-control">
+            <label class="cursor-pointer label">
+              <span class="label-text">Is Available?</span>
+              <input type="checkbox" name="is_available" checked="checked" class="checkbox checkbox-info" />
+            </label>
+          </div>
+          <div class="form-control">
+            <label class="cursor-pointer label">
+              <span class="label-text">Cover Image Room</span>
+            </label>
+            <input type="file" name="room_image1" class="file-input file-input-bordered w-full max-w-xs"  required/>
+          </div>
+          <div class="form-control">
+            <label class="cursor-pointer label">
+              <span class="label-text">Another Image Room</span>
+            </label>
+            <input type="file" name="room_image2" class="file-input file-input-bordered w-full max-w-xs"  required/>
+          </div>
+          <div class="form-control">
+            <label class="cursor-pointer label">
+              <span class="label-text">Another Image Room</span>
+            </label>
+            <input type="file" name="room_image3" class="file-input file-input-bordered w-full max-w-xs"  required/>
+          </div>
+          <div class="form-control">
+            <label class="cursor-pointer label">
+              <span class="label-text">360 Image Room</span>
+            </label>
+            <input type="file" name="360_image" class="file-input file-input-bordered w-full max-w-xs"  required/>
+          </div>
+
+          <textarea name="desc" required class="textarea textarea-bordered" placeholder="Room Description"></textarea>
+          
+        <div class="form-control mt-6">
+          <button type="submit" class="btn btn-primary">Add Room</button>
+        </div>
+      </form>
+    </div>
+  
+</div>
+
+{% endblock %}
