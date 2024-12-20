@@ -1,0 +1,29 @@
+{% extends "admin.html" %} {% block title %} Dashbboard | 09Hotel {% endblock %} 
+{% block content %}
+
+<div class="w-full h-full">
+    <h1 class="font-bold w-full text-center mt-2 text-xl md:text-3xl ">Dashboard</h1>
+    <div class="w-full h-[20%] flex justify-center mt-5">
+        <div class="stats shadow">
+            <div class="stat place-items-center">
+              <div class="stat-title">Downloads</div>
+              <div class="stat-value">31K</div>
+              <div class="stat-desc">From January 1st to February 1st</div>
+            </div>
+          
+            <div class="stat place-items-center">
+              <div class="stat-title">Users</div>
+              <div class="stat-value text-secondary">4,200</div>
+              <div class="stat-desc text-secondary">↗︎ 40 (2%)</div>
+            </div>
+          
+            <div class="stat place-items-center">
+              <div class="stat-title">New Registers</div>
+              <div class="stat-value">1,200</div>
+              <div class="stat-desc">↘︎ 90 (14%)</div>
+            </div>
+          </div>
+    </div>
+</div>
+
+{% endblock %}
