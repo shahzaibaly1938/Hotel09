@@ -1,0 +1,5 @@
+#Ignore Node Module Files
+node_modules/
+
+#Ignore DataBase Files
+*db.sqlite3
