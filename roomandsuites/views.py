@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from .models import Room
+from .models import Room, Roomtype
 from django.contrib import messages
 
 # Create your views here.
@@ -40,3 +40,16 @@ def create_room(request):
             
         return render(request, 'roomandsuites/create_rooms.html')
     return HttpResponse('Not allowed 404!')
+
+@login_required
+def create_roomtype(request):
+    user = request.user
+    if user.is_staff == True:
+        if request.method == 'POST':
+            name = request.POST['name']
+            Roomtype.objects.create(name=name)
+            messages.success(request, 'Room Type Created Successfully..')
+            return redirect('rooms')
+        return render(request, 'roomandsuites/create_roomtype.html')
+    return HttpResponse('Not Allowed 404!')
+

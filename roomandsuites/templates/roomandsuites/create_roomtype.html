@@ -1,0 +1,38 @@
+{% extends "admin.html" %} {% block title %} Dashbboard | 09Hotel {% endblock %}
+{% block content %}
+
+<div class="w-full h-full flex flex-col items-center">
+    <div class="navbar bg-base-100">
+        <div class="navbar-start">
+          <a class="btn btn-ghost text-xl">Create RoomTypes</a>
+        </div>
+        <div class="navbar-end">
+          <a href="{% url 'rooms' %}" class="btn">Back to Rooms</a>
+        </div>
+      </div>
+
+    <div class="card bg-base-100 mt-5 w-full max-w-sm shrink-0 shadow-2xl">
+      <form class="card-body" method="post" action="{% url 'create_roomtype' %}">
+        {% csrf_token %}
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Room Type name</span>
+          </label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Exective Pent"
+            class="input input-bordered"
+            required
+          />
+        </div>
+          
+        <div class="form-control mt-6">
+          <button type="submit" class="btn btn-primary">Add Room Type</button>
+        </div>
+      </form>
+    </div>
+  
+</div>
+
+{% endblock %}

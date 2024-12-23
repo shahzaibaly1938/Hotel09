@@ -3,10 +3,12 @@ from django.db import models
 # Create your models here.
 
 class Roomtype(models.Model):
+    id = models.IntegerField(primary_key=True, default=None)
     name = models.CharField(max_length=100)
     
 
 class Room(models.Model):
+    id = models.IntegerField(primary_key= True, default=None)
     name = models.CharField(max_length=100)
     type = models.ForeignKey(Roomtype, on_delete=models.CASCADE, related_name='roomtype_rooms')
     desc = models.TextField()
