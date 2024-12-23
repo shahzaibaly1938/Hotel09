@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'authen',
     'roomandsuites',
     'adminpanel',
-    'meetingsnevents'
+    'meetingsnevents',
+    'Bookings',
 ]
 
 MIDDLEWARE = [
