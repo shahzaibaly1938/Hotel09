@@ -31,9 +31,13 @@
         <tr>
           <th>{{ room.number }}</th>
           <td>{{ room.name }}</td>
-          <td>{{ room.type }}</td>
+          <td>{{ room.room_type }}</td>
           <td>{{ room.price }} /- PKR</td>
-          <th>{{ room.is_available }}</th>
+          {% if room.is_available == True %}
+          <th>Yes</th>
+          {% else %}
+          <th>No</th>
+          {% endif %}
         </tr>
       {% endfor %}
       </tbody>

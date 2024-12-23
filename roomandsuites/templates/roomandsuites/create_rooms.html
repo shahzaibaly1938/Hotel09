@@ -44,6 +44,11 @@
               <input type="checkbox" name="is_available" checked="checked" class="checkbox checkbox-info" />
             </label>
           </div>
+          <select name="room_type" class="select select-bordered w-full max-w-xs">
+            {% for type in room_type %}
+            <option>{{ type.name }}</option>
+            {% endfor %}
+          </select>
           <div class="form-control">
             <label class="cursor-pointer label">
               <span class="label-text">Cover Image Room</span>

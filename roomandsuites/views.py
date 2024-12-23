@@ -29,16 +29,17 @@ def create_room(request):
             image3 = request.FILES.get('room_image3')
             image360 = request.FILES.get('360_image')
             desc = request.POST['desc']
+            room_type = request.POST['room_type']
             if is_available == 'on':
                 is_available = True
             elif is_available is None:
                 is_available = False
 
-            Room.objects.create(name=name, price=price, is_available=is_available, image1_main=image1, image2=image2, image3=image3, image360=image360, desc=desc)
+            Room.objects.create(name=name, price=price, is_available=is_available, image1_main=image1, image2=image2, image3=image3, image360=image360, desc=desc, room_type=Roomtype.objects.get(name=room_type))
             messages.success(request, "Room Created Sucessfully..")
             return redirect('rooms')
-            
-        return render(request, 'roomandsuites/create_rooms.html')
+        room_type = Roomtype.objects.all()
+        return render(request, 'roomandsuites/create_rooms.html', {'room_type': room_type})
     return HttpResponse('Not allowed 404!')
 
 @login_required
