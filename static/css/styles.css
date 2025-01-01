@@ -942,6 +942,34 @@ html {
   color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity)));
 }
 
+.carousel {
+  display: inline-flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel-item {
+  box-sizing: content-box;
+  display: flex;
+  flex: none;
+  scroll-snap-align: start;
+}
+
+.carousel-start .carousel-item {
+  scroll-snap-align: start;
+}
+
+.carousel-center .carousel-item {
+  scroll-snap-align: center;
+}
+
+.carousel-end .carousel-item {
+  scroll-snap-align: end;
+}
+
 .checkbox {
   flex-shrink: 0;
   --chkbg: var(--fallback-bc,oklch(var(--bc)/1));
@@ -1038,16 +1066,6 @@ html {
   .dropdown.dropdown-hover:hover .dropdown-content {
     visibility: visible;
     opacity: 1;
-  }
-
-  .btm-nav > *.disabled:hover,
-      .btm-nav > *[disabled]:hover {
-    pointer-events: none;
-    --tw-border-opacity: 0;
-    background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
-    --tw-bg-opacity: 0.1;
-    color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
-    --tw-text-opacity: 0.2;
   }
 
   .btn:hover {
@@ -1498,16 +1516,6 @@ html {
   --alert-bg-mix: var(--fallback-b1,oklch(var(--b1)/1));
 }
 
-.btm-nav > *.disabled,
-    .btm-nav > *[disabled] {
-  pointer-events: none;
-  --tw-border-opacity: 0;
-  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
-  --tw-bg-opacity: 0.1;
-  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
-  --tw-text-opacity: 0.2;
-}
-
 .btm-nav > * .label {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1691,6 +1699,10 @@ html {
 .card.image-full :where(figure) {
   overflow: hidden;
   border-radius: inherit;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .checkbox:focus {
@@ -2236,8 +2248,29 @@ html {
   }
 }
 
+.btn-xs {
+  height: 1.5rem;
+  min-height: 1.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 0.75rem;
+}
+
 .btn-wide {
   width: 16rem;
+}
+
+.btn-square:where(.btn-xs) {
+  height: 1.5rem;
+  width: 1.5rem;
+  padding: 0px;
+}
+
+.btn-circle:where(.btn-xs) {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 9999px;
+  padding: 0px;
 }
 
 .menu-horizontal {
@@ -2310,6 +2343,10 @@ html {
 
 .static {
   position: static;
+}
+
+.absolute {
+  position: absolute;
 }
 
 .z-\[1\] {
@@ -2386,6 +2423,10 @@ html {
 
 .h-\[25\%\] {
   height: 25%;
+}
+
+.h-\[60vh\] {
+  height: 60vh;
 }
 
 .h-\[75\%\] {
@@ -2527,6 +2568,11 @@ html {
   padding-right: 0.25rem;
 }
 
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -2546,6 +2592,11 @@ html {
   line-height: 1.75rem;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2557,6 +2608,16 @@ html {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity, 1));
 }
 
 .text-secondary {
@@ -2603,6 +2664,11 @@ html {
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .md\:text-3xl {

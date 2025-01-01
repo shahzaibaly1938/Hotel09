@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block title %} Welcome | 09Hotel {% endblock %} 
+{% block content %}
+{% load static %}
+<div>
+<!-- Home Carousel -->
+<div class="carousel w-full h-[60vh]">
+    <div class="w-full absolute h-[60vh] flex flex-col justify-center items-center">
+        <span class="text-gray-700 text-xs md:text-2xl font-thin">WELCOME TO</span> 
+        <h2 class=" text-gray-800 text-xl md:text-3xl font-bold">THE LUXUARARY HOTEL 09 OF SKARDU</h2>
+    </div>
+    <div id="item1" class="carousel-item w-full">
+      <img width="100%"
+        src="{% static 'Images/Hotel1.jpg' %}"
+         />
+    </div>
+    <div id="item2" class="carousel-item w-full">
+      <img
+        src="{% static 'Images/hotel2.jpg' %}"
+        class="w-full" />
+    </div>
+    <div id="item3" class="carousel-item w-full">
+      <img
+        src="{% static 'Images/hotel3.jpg' %}"
+        class="w-full" />
+    </div>
+    <div id="item4" class="carousel-item w-full">
+      <img
+        src="{% static 'Images/hotel4.jpg' %}"
+        class="w-full" />
+    </div>
+  </div>
+  <div class="flex w-full justify-center gap-2 py-2">
+    <a href="#item1" class="btn btn-xs">1</a>
+    <a href="#item2" class="btn btn-xs">2</a>
+    <a href="#item3" class="btn btn-xs">3</a>
+    <a href="#item4" class="btn btn-xs">4</a>
+  </div>
+<!-- Home Carousel Ends -->
+</div>
+
+{% endblock %}

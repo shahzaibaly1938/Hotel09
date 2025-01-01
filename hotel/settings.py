@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'adminpanel',
     'meetingsnevents',
     'Bookings',
+    'home',
 ]
 
 MIDDLEWARE = [
