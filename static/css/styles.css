@@ -2393,6 +2393,10 @@ html {
   display: none;
 }
 
+.h-1\/2 {
+  height: 50%;
+}
+
 .h-1\/4 {
   height: 25%;
 }
@@ -2455,6 +2459,11 @@ html {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .w-full {
@@ -2521,6 +2530,10 @@ html {
   border-radius: 0.375rem;
 }
 
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -2553,6 +2566,22 @@ html {
 .bg-gray-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1));
+}
+
+.bg-opacity-30 {
+  --tw-bg-opacity: 0.3;
+}
+
+.bg-back-img-main {
+  background-image: url('/static/Images/hotel2.jpg');
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
 }
 
 .stroke-current {
@@ -2605,6 +2634,10 @@ html {
   font-weight: 100;
 }
 
+.tracking-tight {
+  letter-spacing: 0.2em;
+}
+
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
@@ -2618,6 +2651,11 @@ html {
 .text-gray-800 {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-900 {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
 .text-secondary {
@@ -2648,6 +2686,10 @@ html {
 @media (min-width: 768px) {
   .md\:h-2\/3 {
     height: 66.666667%;
+  }
+
+  .md\:h-\[50vh\] {
+    height: 50vh;
   }
 
   .md\:h-full {

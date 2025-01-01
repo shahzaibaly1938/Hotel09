@@ -5,7 +5,15 @@ module.exports = {
     '../**/templates/**/*.html',    // App-specific templates
   ],
   theme: {
-    extend: {},
+    extend: {
+      letterSpacing: {
+        'wide': '0.8em',
+        'tight': '0.2em',
+      },
+      backgroundImage: {
+        'back-img-main': "url('/static/Images/hotel2.jpg')",
+      }
+    },
   },
   plugins: [
     require('daisyui'),
