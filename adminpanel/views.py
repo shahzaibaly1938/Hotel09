@@ -13,12 +13,6 @@ def admin(request):
     return HttpResponse('Not allowed 404!')
 
 
-@login_required
-def bookings(request):
-    user = request.user
-    if user.is_staff == True:
-        return render(request, 'adminpanel/bookings.html')
-    return HttpResponse('Not allowed 404!')
 
 
 

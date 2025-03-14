@@ -5,7 +5,8 @@ from .models import Room, Roomtype
 from django.contrib import messages
 
 # Create your views here.
-
+def roomsandsuites(request):
+    return render(request, 'roomandsuites/roomsandsuites.html')
 
 @login_required
 def rooms(request):

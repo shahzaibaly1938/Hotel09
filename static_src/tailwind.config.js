@@ -12,6 +12,12 @@ module.exports = {
       },
       backgroundImage: {
         'back-img-main': "url('/static/Images/hotel2.jpg')",
+      },
+      colors:{
+        'oxblood':'#622021',
+        'crimson':'#991B20',
+        'egypt':'#E1CAA5',
+        'seafoam':'#FEF9DE',
       }
     },
   },

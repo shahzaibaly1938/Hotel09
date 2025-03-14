@@ -8,7 +8,7 @@
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
   </head>
   <body>
-    <div class="navbar bg-base-100">
+    <div class="navbar bg-seafoam text-oxblood">
       <div class="navbar-start">
         <div class="dropdown">
           <!-- <a href="{% url 'Home' %}"> -->
@@ -34,7 +34,7 @@
             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li><a href="{% url 'Home' %}">HOME</a></li>
-            <li><a>ROOMS & SUITES</a></li>
+            <li><a href="{% url 'roomsandsuites' %}">ROOMS & SUITES</a></li>
             <li><a>MEETINGS & EVENTS</a></li>
             <li><a>RESTUARANTS & DINING</a></li>
             <li>
@@ -48,12 +48,12 @@
             </li>
           </ul>
         </div>
-        <a href="" class="btn btn-ghost text-xl">Hotel09</a>
+        <a href="" class="btn btn-ghost text-xl">Skardu White House</a>
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
           <li><a href="{% url 'Home' %}">HOME</a></li>
-          <li><a>ROOMS & SUITES</a></li>
+          <li><a href="{% url 'roomsandsuites' %}">ROOMS & SUITES</a></li>
           <li><a>MEETINGS & EVENTS</a></li>
           <li><a>RESTUARANTS & DINING</a></li>
           <li>
