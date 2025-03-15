@@ -17,10 +17,10 @@ class Room(models.Model):
     desc = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     is_available = models.BooleanField(default=True)
-    image1_main = models.ImageField(upload_to='room_images/')
-    image2 = models.ImageField(upload_to='room_images/')
-    image3 = models.ImageField(upload_to='room_images/')
-    image360 = models.ImageField(upload_to='room_images/')
+    image1_main = models.ImageField(upload_to='static/room_images/')
+    image2 = models.ImageField(upload_to='static/room_images/')
+    image3 = models.ImageField(upload_to='static/room_images/')
+    image360 = models.ImageField(upload_to='static/room_images/')
 
 
 

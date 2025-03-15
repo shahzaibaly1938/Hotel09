@@ -11,7 +11,7 @@ module.exports = {
         'tight': '0.2em',
       },
       backgroundImage: {
-        'back-img-main': "url('/static/Images/hotel2.jpg')",
+        'back-img-main': "url('/static/room_images/WhatsApp_Image_2025-03-14_at_7.13.57_AM.jpeg')",
       },
       colors:{
         'oxblood':'#622021',

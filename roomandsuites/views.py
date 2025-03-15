@@ -3,10 +3,13 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .models import Room, Roomtype
 from django.contrib import messages
+from .models import Roomtype
+from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 def roomsandsuites(request):
-    return render(request, 'roomandsuites/roomsandsuites.html')
+    roomtypes = Roomtype.objects.all()
+    return render(request, 'roomandsuites/roomsandsuites.html', {'roomtypes':roomtypes})
 
 @login_required
 def rooms(request):
@@ -35,7 +38,6 @@ def create_room(request):
                 is_available = True
             elif is_available is None:
                 is_available = False
-
             Room.objects.create(name=name, price=price, is_available=is_available, image1_main=image1, image2=image2, image3=image3, image360=image360, desc=desc, room_type=Roomtype.objects.get(name=room_type))
             messages.success(request, "Room Created Sucessfully..")
             return redirect('rooms')

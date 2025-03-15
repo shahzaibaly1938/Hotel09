@@ -12,7 +12,7 @@
       </div>
 
     <div class="card bg-base-100 mt-5 w-full max-w-sm shrink-0 shadow-2xl">
-      <form class="card-body" method="post" action="{% url 'create_room' %}">
+      <form class="card-body" method="post" enctype="multipart/form-data" action="{% url 'create_room' %}">
         {% csrf_token %}
         <div class="form-control">
           <label class="label">
