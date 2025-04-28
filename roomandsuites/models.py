@@ -22,5 +22,8 @@ class Room(models.Model):
     image3 = models.ImageField(upload_to='static/room_images/')
     image360 = models.ImageField(upload_to='static/room_images/')
 
+    def __str__(self):
+        return f"{self.name} : {self.price}" 
+
 
 

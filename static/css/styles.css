@@ -1068,6 +1068,16 @@ html {
     opacity: 1;
   }
 
+  .btm-nav > *.disabled:hover,
+      .btm-nav > *[disabled]:hover {
+    pointer-events: none;
+    --tw-border-opacity: 0;
+    background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
+    --tw-bg-opacity: 0.1;
+    color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+    --tw-text-opacity: 0.2;
+  }
+
   .btn:hover {
     --tw-border-opacity: 1;
     border-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-border-opacity)));
@@ -1514,6 +1524,16 @@ html {
   color: var(--fallback-erc,oklch(var(--erc)/var(--tw-text-opacity)));
   --alert-bg: var(--fallback-er,oklch(var(--er)/1));
   --alert-bg-mix: var(--fallback-b1,oklch(var(--b1)/1));
+}
+
+.btm-nav > *.disabled,
+    .btm-nav > *[disabled] {
+  pointer-events: none;
+  --tw-border-opacity: 0;
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
+  --tw-bg-opacity: 0.1;
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+  --tw-text-opacity: 0.2;
 }
 
 .btm-nav > * .label {
@@ -2437,6 +2457,10 @@ html {
   height: 25%;
 }
 
+.h-\[60\%\] {
+  height: 60%;
+}
+
 .h-\[60vh\] {
   height: 60vh;
 }
@@ -2466,6 +2490,22 @@ html {
   height: 100vh;
 }
 
+.h-\[70\%\] {
+  height: 70%;
+}
+
+.h-\[130vh\] {
+  height: 130vh;
+}
+
+.h-\[150vh\] {
+  height: 150vh;
+}
+
+.h-\[160vh\] {
+  height: 160vh;
+}
+
 .w-4 {
   width: 1rem;
 }
@@ -2480,6 +2520,10 @@ html {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-\[80\%\] {
+  width: 80%;
 }
 
 .w-\[90\%\] {
@@ -2594,6 +2638,11 @@ html {
   background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity, 1)));
 }
 
+.bg-egypt {
+  --tw-bg-opacity: 1;
+  background-color: rgb(225 202 165 / var(--tw-bg-opacity, 1));
+}
+
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
@@ -2609,19 +2658,9 @@ html {
   background-color: rgb(156 163 175 / var(--tw-bg-opacity, 1));
 }
 
-.bg-gray-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(107 114 128 / var(--tw-bg-opacity, 1));
-}
-
 .bg-gray-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1));
-}
-
-.bg-green-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(74 222 128 / var(--tw-bg-opacity, 1));
 }
 
 .bg-oxblood {
@@ -2629,23 +2668,22 @@ html {
   background-color: rgb(98 32 33 / var(--tw-bg-opacity, 1));
 }
 
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));
+}
+
 .bg-seafoam {
   --tw-bg-opacity: 1;
   background-color: rgb(254 249 222 / var(--tw-bg-opacity, 1));
 }
 
-.bg-yellow-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(253 224 71 / var(--tw-bg-opacity, 1));
-}
-
-.bg-egypt {
-  --tw-bg-opacity: 1;
-  background-color: rgb(225 202 165 / var(--tw-bg-opacity, 1));
-}
-
 .bg-opacity-30 {
   --tw-bg-opacity: 0.3;
+}
+
+.bg-opacity-60 {
+  --tw-bg-opacity: 0.6;
 }
 
 .bg-back-img-main {
@@ -2666,6 +2704,10 @@ html {
 
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-1 {
@@ -2729,11 +2771,6 @@ html {
   color: rgb(31 41 55 / var(--tw-text-opacity, 1));
 }
 
-.text-gray-900 {
-  --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
-}
-
 .text-oxblood {
   --tw-text-opacity: 1;
   color: rgb(98 32 33 / var(--tw-text-opacity, 1));
@@ -2755,10 +2792,6 @@ html {
 
 .decoration-1 {
   text-decoration-thickness: 1px;
-}
-
-.underline-offset-2 {
-  text-underline-offset: 2px;
 }
 
 .underline-offset-4 {
@@ -2791,9 +2824,19 @@ html {
   background-color: rgb(254 249 222 / var(--tw-bg-opacity, 1));
 }
 
+.hover\:bg-base-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-bg-opacity, 1)));
+}
+
 .hover\:text-oxblood:hover {
   --tw-text-opacity: 1;
   color: rgb(98 32 33 / var(--tw-text-opacity, 1));
+}
+
+.focus\:border-seafoam:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(254 249 222 / var(--tw-border-opacity, 1));
 }
 
 @media (min-width: 768px) {
@@ -2801,8 +2844,16 @@ html {
     margin-top: 1.25rem;
   }
 
+  .md\:mt-6 {
+    margin-top: 1.5rem;
+  }
+
   .md\:h-2\/3 {
     height: 66.666667%;
+  }
+
+  .md\:h-\[100\%\] {
+    height: 100%;
   }
 
   .md\:h-\[50vh\] {
@@ -2813,8 +2864,16 @@ html {
     height: 100%;
   }
 
+  .md\:h-\[90\%\] {
+    height: 90%;
+  }
+
   .md\:w-1\/4 {
     width: 25%;
+  }
+
+  .md\:w-\[50\%\] {
+    width: 50%;
   }
 
   .md\:w-\[75\%\] {

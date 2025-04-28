@@ -1,0 +1,43 @@
+{% extends "admin.html" %}
+
+{% block title %}
+    CustomerProfile | 09Hotel
+{% endblock %}
+
+{% block content %}
+
+
+<div class="w-full h-screen flex flex-col items-center">
+    <h1 class="text-3xl">Customer Profile</h1>
+    <h2 class="text-2xl">Welcome {{client.username}}</h2>
+
+    <div class="overflow-x-auto">
+        <table class="table">
+          <!-- head -->
+          <thead>
+            <tr>
+              <th></th>
+              <th>Username</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Phone number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- row 1 -->
+            <tr>
+              <th>{{client.id}}</th>
+              <td>{{client.username}}</td>
+              <td>{{client.first_name}}</td>
+              <td>{{client.last_name}}</td>
+              <td>{{client.email}}</td>
+              <td>{{client.number}}</td>
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>
+</div>
+
+{% endblock %}

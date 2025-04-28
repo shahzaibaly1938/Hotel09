@@ -3,7 +3,7 @@
 <div>
 <div class="navbar bg-base-100">
     <div class="navbar-start">
-      <a class="btn btn-ghost text-xl">Bookings</a>
+      <a class="btn btn-ghost text-xl">Bookings Queries</a>
     </div>
     <div class="navbar-end">
       <a href="" class="btn">Create Room Types</a>
@@ -12,7 +12,38 @@
     </div>
   </div>
   
-
+  <div class="overflow-x-auto overflow-y-auto">
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Room Type</th>
+          <th>Check In</th>
+          <th>Check Out</th>
+          <th>Adults</th>
+         
+          <th>No of Rooms</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- row 1 -->
+         {% for query in queries %}
+        <tr>
+          <td>{{query.id}}</td>
+          <th><a href="{% url 'clients_profile' query.user %}">{{ query.user }}</a></th>
+          <td>{{ query.room_type }}</td>
+          <td>{{ query.check_in }}</td>
+          <td>{{ query.check_out }} </td>
+          <td>{{ query.adults }} </td>
+          <td>{{ query.no_of_rooms }} </td>
+          
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
   
   
 

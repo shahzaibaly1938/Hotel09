@@ -4,10 +4,68 @@
 
 <div class="w-full h-[60vh] md:h-[50vh] flex justify-center items-center bg-back-img-main bg-center bg-cover">
 
-  <div class="p-2 h-1/2 flex flex-col justify-center bg-gray-700 bg-opacity-30 w-fit shadow-2xl rounded-xl items-center">
-    <h2 class=" text-gray-900 text-xl md:text-3xl tracking-tight font-thin">Book Rooms, Huts, PentHouse</h2>
+  <div class="p-2 h-1/2 flex flex-col justify-center bg-seafoam bg-opacity-60 w-fit shadow-2xl rounded-xl items-center">
+    <h2 class=" text-oxblood text-xl md:text-3xl tracking-tight font-thin">Book Rooms, Huts, PentHouse</h2>
 </div>
 
+</div>
+
+<div class="w-full h-screen bg-egypt flex justify-center items-center">
+  <div class=" w-[80%] md:w-[50%] h-[60%] md:h-[90%] bg-seafoam rounded-xl flex flex-col items-center shadow-2xl">
+    <div class="w-full h-[10%] flex justify-center items-center"><h1 class=" text-oxblood text-xs md:text-2xl tracking-tight font-thin">BOOK ROOMS HERE</h1></div>
+    <div class=" w-[90%] md:w-[50%] mt-2 md:mt-5 ">
+      <form action="{% url 'check_availbility' %}" method="post">
+        {% csrf_token %}
+      <table>
+        <!-- head -->
+   
+          <tr>
+            <legend class="fieldset-legend text-oxblood font-thin">Room Types</legend>
+            <select name="room_type" required class="select focus:border-seafoam border-seafoam w-full bg-oxblood text-seafoam">
+              {% for type in room_type %}
+                <option>{{ type.name }}</option>
+              {% endfor %}
+              
+            </select>
+          </tr>
+      
+        <tbody>
+          <!-- row 1 -->
+           <br>
+          <tr>
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend text-oxblood font-thin">Check In</legend>
+              <input required type="date" name="checkin" class="input focus:border-seafoam border-seafoam w-full bg-oxblood text-seafoam" />
+            </fieldset>
+          </tr>
+          <!-- row 2 -->
+          <tr>
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend text-oxblood font-thin">Check Out</legend>
+              <input type="date" name="checkout" class="input focus:border-seafoam border-seafoam w-full bg-oxblood text-seafoam" placeholder="Type here" />
+            </fieldset>
+          </tr>
+          <!-- row 3 -->
+          <tr>
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend text-oxblood font-thin">Adults</legend>
+              <input required type="number" name="adults" class="input focus:border-seafoam border-seafoam w-full bg-oxblood text-seafoam" placeholder="02" />
+            </fieldset>
+          </tr>
+          <tr>
+            <fieldset class="fieldset">
+              <legend class="fieldset-legend text-oxblood font-thin">No. of Rooms</legend>
+              <input required type="number" name="no_of_rooms" class="input focus:border-seafoam border-seafoam w-full bg-oxblood text-seafoam" placeholder="01" />
+            </fieldset>
+          </tr>
+          <tr class="flex justify-center items-center w-full bg-red-500">
+             <button type="submit" class="btn w-full mt-2 md:mt-5  bg-oxblood hover:bg-seafoam hover:text-oxblood border-seafoam hover:border-oxblood text-seafoam ">Check Availbility</button>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
